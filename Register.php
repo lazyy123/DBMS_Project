@@ -116,7 +116,12 @@ $usr_name = 'SYSTEM';
         }
         else{
             
-            echo'not found';
+            echo'<script>';
+            echo'function pageRedirect() {';
+                echo'window.location.replace("index.html");';
+            echo'}  ';    
+            echo'setTimeout("pageRedirect()", 100);';
+        echo'</script>';
            
            
         }
