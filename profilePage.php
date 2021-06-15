@@ -34,10 +34,10 @@ session_start();
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">Kotha</a></h1>
+      <h1 class="logo mr-auto"><a href="Homepage.php">Kotha</a></h1>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="Homepage.php">Home</a></li>
           
           <li class="drop-down"><a href="">Books</a>
             <ul>
@@ -58,7 +58,7 @@ session_start();
               
             </ul>
           </li> 
-          <li class="active"><a href="profilePage.html">Account</a></li>
+          <li class="active"><a href="profilePage.php">Account</a></li>
           <li><a href="">Contact</a></li>
           
           
@@ -254,8 +254,8 @@ session_start();
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="profilePage.html">Account</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="Homepage.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="profilePage.php">Account</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="">All the books</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="">Send us massage</a></li>
             </ul>
