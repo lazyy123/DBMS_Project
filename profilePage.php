@@ -39,19 +39,10 @@ session_start();
         <ul>
           <li><a href="Homepage.php">Home</a></li>
           
-          <li class="drop-down"><a href="">Books</a>
+          <li class="drop-down"><a href="books.php">Books</a>
             <ul>
               <li class="drop-down"><a href="#">Text Books</a>
-                <ul>
-                  <li><a href="">CE</a></li>
-                  <li><a href="">CSE</a></li>
-                  <li><a href="">ME</a></li>
-                  <li><a href="">EECE</a></li>
-                  <li><a href="">NSE</a></li>
-                  <li><a href="">PME</a></li>
-                  <li><a href="">ARCH</a></li>
-                
-                </ul>
+               
               </li>
               <li><a href="">Magazine</a></li>
               <li><a href="">History Books</a></li>
@@ -60,7 +51,7 @@ session_start();
           </li> 
           <li class="active"><a href="profilePage.php">Account</a></li>
           <li><a href="">Contact</a></li>
-          
+          <li><a href="selectCart.php">Cart</a></li>
           
 
         </ul>
@@ -151,19 +142,23 @@ session_start();
                                         
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Level</label>
+                                                <label style="font-weight:bold;">E-Mail</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                3
+                                            <?php
+                                    echo $_SESSION['Mail_ID'];
+                                    ?>
                                             </div>
                                         </div>
                                         <hr />
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Term</label>
+                                                <label style="font-weight:bold;">Contact Number</label>
                                             </div>
                                             <div class="col-md-8 col-6">
-                                                1
+                                            <?php
+                                    echo $_SESSION['PPHONE'];
+                                    ?>
                                             </div>
                                         </div>
                                         <hr />

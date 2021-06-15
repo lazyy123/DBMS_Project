@@ -109,6 +109,7 @@ $usr_name = 'SYSTEM';
                 $_SESSION['NNAME']=$row[2];
                 $_SESSION['DDEPT']=$row[1];
                 $_SESSION['IID']=$row[0];
+                $_SESSION['PPHONE']=$row[4];
                 $flag=1;break;
             }
           

@@ -34,9 +34,9 @@
         <h1 class="logo mr-auto"><a href="index.html">Kotha</a></h1>
         <nav class="nav-menu d-none d-lg-block">
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="Homepage.php">Home</a></li>
             
-            <li class="drop-down"><a href="books.html">Books</a>
+            <li class="drop-down"><a href="books.php">Books</a>
               <ul>
                 <li class="drop-down"><a href="#">Text Books</a>
                   <ul>
@@ -55,9 +55,9 @@
                 
               </ul>
             </li> 
-            <li><a href="profilePage.html">Account</a></li>
+            <li><a href="profilePage.php">Account</a></li>
             <li><a href="">Contact</a></li>
-            <li class="active"><a href="selectCart.html">Cart</a></li>
+            <li class="active"><a href="selectCart.php">Cart</a></li>
             
             
   
@@ -75,12 +75,13 @@
     				<thead>
 						<tr>
 							<th style="width:50%">Books</th>
-						
-							<th style="width:8%">Quantity</th>
+
+              <th style="width:15%;">Barcode</th>
 							<th style="width:10%"></th>
 						</tr>
 					</thead>
 					<tbody>
+            <!-------------->
 						<tr>
 							<td data-th="Product">
 								<div class="row">
@@ -91,18 +92,19 @@
 										</div>
 								</div>
 							</td>
-							
-							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
+						
+
+              <td data-th="Barcode">
+								<p>301140000238</p>
 							</td>
 							
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><i class="fa fa-refresh" aria-hidden="true"></i></button>
 								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>								
 							</td>
 						</tr>
-
-                        <tr>
+              
+            <!-------------->
+              <tr>
 							<td data-th="Product">
 								<div class="row">
 									<div class="col-sm-2 hidden-xs"><img src="./IMAGES/A programmer's Guide.jpg"/></div>
@@ -113,15 +115,65 @@
 								</div>
 							</td>
 							
-							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
+							
+
+              <td data-th="Barcode">
+								<p>301140000238</p>
 							</td>
 							
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><i class="fa fa-refresh" aria-hidden="true"></i></button>
 								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>								
 							</td>
 						</tr>
+
+            <!-------------->
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="./IMAGES/ARCH books/Architectural Engineering Desing.jpg"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">Architectural Engineering Desing</h4>
+                                        <span>Author</span>
+										</div>
+								</div>
+							</td>
+							
+							
+
+              <td data-th="Barcode">
+								<p>301140000238</p>
+							</td>
+							
+							<td class="actions" data-th="">
+								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>								
+							</td>
+						</tr>
+              
+            <!-------------->
+              <tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="./IMAGES/CE books/Construction Practices for Land Development.jpg"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">Construction Practices for Land Development</h4>
+                                        <span>Author</span>
+										</div>
+								</div>
+							</td>
+							
+							
+
+              <td data-th="Barcode">
+								<p>301140000238</p>
+							</td>
+							
+							<td class="actions" data-th="">
+								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>								
+							</td>
+						</tr>
+
+
+
 					</tbody>
 					<tfoot>
 						<tr class="visible-xs">

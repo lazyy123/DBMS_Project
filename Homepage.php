@@ -41,19 +41,10 @@
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
           
-          <li class="drop-down"><a href="">Books</a>
+          <li class="drop-down"><a href="books.php">Books</a>
             <ul>
               <li class="drop-down"><a href="#">Text Books</a>
-                <ul>
-                  <li><a href="">CE</a></li>
-                  <li><a href="">CSE</a></li>
-                  <li><a href="">ME</a></li>
-                  <li><a href="">EECE</a></li>
-                  <li><a href="">NSE</a></li>
-                  <li><a href="">PME</a></li>
-                  <li><a href="">ARCH</a></li>
-                
-                </ul>
+              
               </li>
               <li><a href="">Magazine</a></li>
               <li><a href="">History Books</a></li>
@@ -62,6 +53,7 @@
           </li> 
           <li><a href="profilePage.php">Account</a></li>
           <li><a href="">Contact</a></li>
+          <li><a href="selectCart.php">Cart</a></li>
           
           
 
