@@ -1,3 +1,9 @@
+
+<?php
+@ob_start();
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="registerCSS.css" type="text/css">
+    <link rel="stylesheet" href="CSSAll/registerCSS.css" type="text/css">
 </head>
 <body>
 
@@ -51,6 +57,7 @@
 </html>
 
 <?php
+ //session_start();
 $usr_name = 'SYSTEM';
     $pass = '123ORacle';
 
@@ -65,7 +72,7 @@ $usr_name = 'SYSTEM';
         //echo '<p>ki korsos bainchod</p>';
     }
 
-
+   
     if (isset($_POST['butt'])){
         $id = $_POST['id'];
         $dept = $_POST['dept'];
@@ -75,7 +82,7 @@ $usr_name = 'SYSTEM';
         $mail = $_POST['mail'];
         $command = 'insert into PERSON_TABLE';
         $datas = ' values (' . "'".$id."'". "," . "'".$dept."'". ",". "'".$nam."'". ",". "'".$pass."'". "," .$phone. ",". "'".$mail."'".')';
-        //echo $datas;
+        echo $datas;
         $command.=$datas;
         $out = oci_parse($connect,$command);
         oci_execute($out);
@@ -89,6 +96,8 @@ $usr_name = 'SYSTEM';
      if (isset($_POST['log'])){ 
         $inn1 = $_POST['mmail'];
         $inn2 = $_POST['ppass'];
+        $_SESSION['Mail_ID']=$inn1;
+        $_SESSION['PASSWORD']=$inn2;
         $show_table1 = "select * from PERSON_TABLE  where EMAIL ='".$inn1."'AND PASSWORD='".$inn2."' ";
         $out1 = oci_parse($connect,$show_table1);
         oci_execute($out1);
@@ -97,6 +106,9 @@ $usr_name = 'SYSTEM';
         while (($row = oci_fetch_array($out, OCI_NUM)) ) {
           
             if(($row = oci_fetch_array($out1, OCI_NUM)) ==true){
+                $_SESSION['NNAME']=$row[2];
+                $_SESSION['DDEPT']=$row[1];
+                $_SESSION['IID']=$row[0];
                 $flag=1;break;
             }
           
@@ -126,6 +138,7 @@ $usr_name = 'SYSTEM';
            
         }
      } 
+     ob_flush();
      ?>    
 
 
