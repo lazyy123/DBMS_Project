@@ -115,7 +115,7 @@ session_start();
 							</td>
 							
 							<td class="actions" data-th="">
-								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>								
+								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true">Remove</i></button>								
 							</td>
 						</tr>
               
@@ -138,7 +138,7 @@ session_start();
 							</td>
 							
 							<td class="actions" data-th="">
-								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>								
+								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true">Remove</i></button>								
 							</td>
 						</tr>
 
@@ -161,7 +161,7 @@ session_start();
 							</td>
 							
 							<td class="actions" data-th="">
-								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>								
+								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true">Remove</i></button>								
 							</td>
 						</tr>
               
@@ -184,7 +184,7 @@ session_start();
 							</td>
 							
 							<td class="actions" data-th="">
-								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>								
+								<button class="btn btn-danger btn-sm"><i class="fa fa-minus-circle" aria-hidden="true">Remove</i></button>								
 							</td>
 						</tr>
 

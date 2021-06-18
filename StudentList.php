@@ -45,9 +45,9 @@ session_start();
         <?php
     
           $IDD= $_SESSION['IID'];
-        if($IDD[0]=='F')
+        if($IDD[0]=='S')
         {
-          echo'<li><a href="Homepage_fac.php">Home</a></li>';
+          echo'<li><a href="Homepage_std.php">Home</a></li>';
         }
         else if($IDD[0]=='L')
         {
@@ -74,8 +74,8 @@ session_start();
           
           <li><a href="Contact.php">Contact</a></li>
           <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchdao">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="sear">Search</button>
     </form>
 
         </ul>
@@ -192,6 +192,25 @@ session_start();
         </div>
       </div>
     </div>
+
+    <?php
+    if (isset($_POST['sear'])){ 
+      //$disi= $_POST['searchdao'];
+      //if(!is_null($disi))
+      
+        $IDD= $_SESSION['IID'];
+       
+          echo'<script>';
+          echo'function pageRedirect() {';
+              echo'window.location.replace("BorrowHistory.php");';
+          echo'}  ';    
+          echo'setTimeout("pageRedirect()", 100);';
+          echo'</script>';
+       
+
+      
+    }
+    ?>
 
     <?php ob_flush();  ?> 
 </body>

@@ -63,6 +63,7 @@ session_start();
               
             </ul>
           </li> 
+          <li><a href="StudentList.php">students</a></li>
           <li><a href="profilePage.php">Account</a></li>
           <li><a href="Contact.php">Contacts</a></li>
           <li><a href="Suggestion.php">Suggestions</a></li>
