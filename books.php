@@ -1,4 +1,3 @@
-
 <?php
 @ob_start();
 session_start();
@@ -17,13 +16,13 @@ session_start();
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <link href="CSSAll/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap.min.css" rel="stylesheet">
 
 
 
-  <link href="CSSAll/booksCSS.css" rel="stylesheet">
+  <link href="./CSSAll/booksCSS.css" rel="stylesheet">
 
-  <!--======================================================== -->
+  <!-- ======================================================== -->
 </head>
 
 
@@ -33,53 +32,40 @@ session_start();
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="Homepage.html">Kotha</a></h1>
+      <h1 class="logo mr-auto"><a href="#">Kotha</a></h1>
       <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <?php
-        if  ( (!isset($_SESSION['Mail_ID'] ))&& (!isset($_SESSION['PASSWORD'])) ){
-        
-          echo'<li><a href="index.html">Home</a></li>';
-     
-        }
-        else
-        {
-     
-          echo ' <li><a href="Homepage.php">Home</a></li>';
-        }
+      <ul class="nav justify-content-end">
+        <?php
+     $IDD= $_SESSION['IID'];
+     if($IDD[0]=='F')
+     {
+      echo'<li><a href="Homepage_fac.php">Home</a></li>';
+     }
+     else if($IDD[0]=='S')
+     {
+      echo'<li><a href="Homepage_std.php">Home</a></li>';
+     }
+     else
+     {
+     echo' <li><a href="Homepage_lib.php">Home</a></li>';
+     }
         ?>
-     
+         
           
           <li class="drop-down active"><a href="books.php">Books</a>
             <ul>
-              <li class="drop-down"><a href="#">Text Books</a>
-                <ul>
-                  <li><a href="">CE</a></li>
-                  <li><a href="">CSE</a></li>
-                  <li><a href="">ME</a></li>
-                  <li><a href="">EECE</a></li>
-                  <li><a href="">NSE</a></li>
-                  <li><a href="">PME</a></li>
-                  <li><a href="">ARCH</a></li>
-                
-                </ul>
-              </li>
+              <li><a href="#">Text Books</a></li>
+              
               <li><a href="">Magazine</a></li>
               <li><a href="">History Books</a></li>
               
             </ul>
           </li> 
-          <?php
-        if  ( (isset($_SESSION['Mail_ID'] ))&& (isset($_SESSION['PASSWORD'])) ){
-        
-          echo'<li><a href="profilePage.php">Account</a></li>';
-     
-        }
-     
-        ?>
-          
-          <li><a href="">Contact</a></li>
           <li><a href="selectCart.php">Cart</a></li>
+          <li><a href="profilePage.php">Account</a></li>
+          <li><a href="Contact.php">Contact</a></li>
+          
+         
           
 
         </ul>
@@ -123,7 +109,8 @@ session_start();
   <!--type-------->
   <div class="type">
   <h5>A programmer's Guide</h5>
-  <span>Author</span>
+  <span> Dr. William M Springer</span>
+  <h5>B-Yt346</h5>
   <div>
     <h6>Available: 6</h6>
   </div>
@@ -151,7 +138,8 @@ session_start();
   <!--type-------->
   <div class="type">
     <h5>Computer & Network Security</h5>
-  <span>Author</span>
+  <span>Udo W. Pooch</span>
+  <h5>B-90Pgfs</h5>
   <div>
     <h6>Available: 6</h6>
   </div>
@@ -180,7 +168,8 @@ session_start();
   <!--type-------->
   <div class="type">
   <h5>Data Structure Using C</h5>
-  <span>Author</span>
+  <span>Anil k Ahlawat</span>
+  <h5>B-12dft</h5>
   <div>
     <h6>Available: 6</h6>
   </div>
@@ -208,7 +197,8 @@ session_start();
   <!--type-------->
   <div class="type">
     <h5>Dictionary of Computer Science</h5>
-  <span>Author</span>
+  <span>Dr. S. Anandamurugan</span>
+  <h5>B-VGF789</h5>
   <div>
     <h6>Available: 6</h6>
   </div>
@@ -236,7 +226,8 @@ session_start();
   <!--type-------->
   <div class="type">
     <h5>Funding A Revolution</h5>
-  <span>Author</span>
+  <span> National Research Council</span>
+  <h5>B-FR234E</h5>
   <div>
     <h6>Available: 6</h6>
   </div>
@@ -252,7 +243,7 @@ session_start();
 <div class="box">
   <!--img-box---------->
   <div class="slide-img">
-  <img alt="1" src="./IMAGES/A programmer's Guide.jpg">
+  <img alt="1" src="./IMAGES/ARCH books/Architectural Engineer's Solutions Suite.jpg">
   <!--overlayer---------->
   <div class="overlay">
   <!--buy-btn------>	
@@ -263,8 +254,9 @@ session_start();
   <div class="detail-box">
   <!--type-------->
   <div class="type">
-  <h5>A programmer's Guide</h5>
-  <span>Author</span>
+  <h5>Architectural Engineer's Solutions Suite</h5>
+  <span>Tyler Gregory Hicks</span>
+  <h5>B-IJ65DS</h5>
   <div>
     <h6>Available: 6</h6>
   </div>
@@ -280,7 +272,7 @@ session_start();
   <div class="box">
   <!--img-box---------->
   <div class="slide-img">
-  <img alt="2" src="./IMAGES/Computer & Network Security.jpg">
+  <img alt="2" src="./IMAGES/ARCH books/Architectural Engineering Desing.jpg">
   <!--overlayer---------->
   <div class="overlay">
   <!--buy-btn------>	
@@ -291,8 +283,9 @@ session_start();
   <div class="detail-box">
   <!--type-------->
   <div class="type">
-    <h5>Computer & Network Security</h5>
-  <span>Author</span>
+    <h5>Architectural Engineering Design</h5>
+  <span> Robert Brown Butler </span>
+  <h5>B-PKG4ds6</h5>
   <div>
     <h6>Available: 6</h6>
   </div>
@@ -308,7 +301,7 @@ session_start();
   <div class="box">
   <!--img-box---------->
   <div class="slide-img">
-  <img alt="3" src="./IMAGES/Data Structure Using C.jpg">
+  <img alt="3" src="./IMAGES/ARCH books/Engineering Design Graphics.jpg">
   <!--overlayer---------->
   <div class="overlay">
   <!--buy-btn------>	
@@ -319,8 +312,9 @@ session_start();
   <div class="detail-box">
   <!--type-------->
   <div class="type">
-  <h5>Data Structure Using C</h5>
-  <span>Author</span>
+  <h5>Engineering Design Graphics</h5>
+  <span>James H.Earle</span>
+  <h5>B-984RTv3</h5>
   <div>
     <h6>Available: 6</h6>
   </div>
@@ -335,7 +329,7 @@ session_start();
   <div class="box">
   <!--img-box---------->
   <div class="slide-img">
-  <img alt="4" src="./IMAGES/Dictionary of Computer Science.png">
+  <img alt="4" src="./IMAGES/ARCH books/Engineering Design Principles.jpg">
   <!--overlayer---------->
   <div class="overlay">
   <!--buy-btn------>	
@@ -346,7 +340,7 @@ session_start();
   <div class="detail-box">
   <!--type-------->
   <div class="type">
-    <h5>Dictionary of Computer Science</h5>
+    <h5>Engineering Design Principles</h5>
   <span>Author</span>
   <div>
     <h6>Available: 6</h6>
@@ -363,7 +357,7 @@ session_start();
   <div class="box">
   <!--img-box---------->
   <div class="slide-img">
-  <img alt="5" src="./IMAGES/Funding A Revolution.jpg">
+  <img alt="5" src="./IMAGES/ARCH books/Engineering Design.jpg">
   <!--overlayer---------->
   <div class="overlay">
   <!--buy-btn------>	
@@ -374,12 +368,559 @@ session_start();
   <div class="detail-box">
   <!--type-------->
   <div class="type">
-    <h5>Funding A Revolution</h5>
+    <h5>Engineering Design</h5>
   <span>Author</span>
   <div>
     <h6>Available: 6</h6>
   </div>
   </div>
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/ARCH books/Machine Design.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Machine Design</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/ARCH books/Structure Engineering Handbook.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Structure Engineering Handbook</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/CE books/Civil Engineering Basics.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Civil Engineering Basics</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/CE books/Civil Engineering Materials.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Civil Engineering Materials</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/CE books/Construction Practices for Land Development.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Construction Practices for Land Development</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/CE books/Constuction Engineering.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Constuction Engineering</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/CE books/Geotechnical Engineering.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Geotechnical Engineering</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/CE books/Soil Mechanics and Foundations.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Soil Mechanics and Foundations</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/CE books/Standard Handbook for Civil Engineers.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Standard Handbook for Civil Engineers</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/ME books/Automotive Mechanics.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Automotive Mechanics</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/ME books/Basic Mechanical Engineering.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Basic Mechanical Engineering</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/ME books/DEsign and Optimization of Thermal System.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>DEsign and Optimization of Thermal System</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/ME books/Dictionary of Mechanical Engineering.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Dictionary of Mechanical Engineering</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/NSE books/Applied Nuclear  Engineering.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Applied Nuclear  Engineering</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/NSE books/Introduction to Nuclear Engineering.png">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Introduction to Nuclear Engineering</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/PME books/Engineering Thermodynamics.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Engineering Thermodynamics</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/PME books/Fundamentals of Petroleum Refining.png">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Fundamentals of Petroleum Refining</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/NSE books/Nuclear Reactor Engineering.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Nuclear Reactor Engineering</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
+  </div>
+  
+  </div>
+
+    
+
+    <!--4------------------------------------>	
+  
+<!--box-slider--------------->
+<div class="box">
+  <!--img-box---------->
+  <div class="slide-img">
+  <img alt="4" src="./IMAGES/PME books/Petroleum Engineering Explained.jpg">
+  <!--overlayer---------->
+  <div class="overlay">
+  <!--buy-btn------>	
+  <a href="#" class="buy-btn">Select</a>	
+  </div>
+  </div>
+  <!--detail-box--------->
+  <div class="detail-box">
+  <!--type-------->
+  <div class="type">
+    <h5>Petroleum Engineering Explained</h5>
+  <span>Author</span>
+  <div>
+    <h6>Available: 6</h6>
+  </div>
+  </div>
+    
   </div>
   
   </div>
@@ -421,7 +962,7 @@ session_start();
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="profilePage.html">Account</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="profilePage.php">Account</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="">All the books</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="">Send us massage</a></li>
             </ul>

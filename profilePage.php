@@ -34,10 +34,25 @@ session_start();
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="Homepage.php">Kotha</a></h1>
+      <h1 class="logo mr-auto"><a href="#">Kotha</a></h1>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="Homepage.php">Home</a></li>
+        <?php
+                $IDD= $_SESSION['IID'];
+            if($IDD[0]=='S')
+            {
+                echo'<li><a href="Homepage_std.php">Home</a></li>';
+            }
+            else if($IDD[0]=='F')
+            {
+                echo'<li><a href="Homepage_fac.php">Home</a></li>';
+            }
+            else
+            {
+                echo'<li><a href="Homepage_lib.php">Home</a></li>';
+            }
+        ?>
+          
           
           <li class="drop-down"><a href="books.php">Books</a>
             <ul>
