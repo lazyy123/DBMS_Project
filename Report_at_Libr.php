@@ -26,8 +26,20 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
   <link href="CSSAll/Repot_at_LibrCSS.css" rel="stylesheet">
+
+  <!--------------------------------------------------------->
+
+<script>
+  $(document).ready(function() {
+  $("#myytable").on('click', '.remove', function () {
+    $(this).closest('tr').remove();
+});
+});
+</script>
+
 
   <!--======================================================== -->
 </head>
@@ -95,6 +107,8 @@ session_start();
                 <p>Search Librarian:</p>  
                 <input class="form-control" id="myInput" type="text" placeholder="Search..">
                 <br>
+                <td><button type="button" class="btn btn-outline-success remove">Solved</button></td>
+                <br>
 
                 <table class="table table-hover">
     <thead>
@@ -116,7 +130,7 @@ session_start();
         <td>01928335652</td>
         <td>Page of Book missing.</td> 
         <td>There are 30 pages missing from the book Engineering Design.<br>I can't find the chapter I need to read!! </td>               
-        <td><button type="button" class="btn btn-outline-success">Solved</button></td>
+        <td><input type="checkbox" name="record"></td>
       </tr>
       <tr>
         <td>f_564546334</td>
@@ -125,7 +139,7 @@ session_start();
         <td>01923635848</td>
         <td>Pages of Book is blank.</td> 
         <td>There are 4 pages are blank from the book Engineering Design.<br>The page numbers ar 289, 627, 183, 388. </td>                
-        <td><button type="button" class="btn btn-outline-success">Solved</button></td>              
+        <td><input type="checkbox" name="record"></td>              
       </tr>
       <tr>
         <td>s_564543234</td>
@@ -134,7 +148,7 @@ session_start();
         <td>01928335652</td>
         <td>Page of Book missing.</td> 
         <td>There are 30 pages missing from the book Engineering Design.<br>I can't find the chapter I need to read!! </td>               
-        <td><button type="button" class="btn btn-outline-success">Solved</button></td>               
+        <td><input type="checkbox" name="record"></td>               
       </tr>
       
     </tbody>
@@ -149,6 +163,22 @@ session_start();
       });
     });
     </script>
+
+<script>
+$(document).ready(function () {
+    // Find and remove selected table rows
+    $(".remove").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+            	if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                }
+            });
+        });
+    });
+</script>
+
+
+
             </div>
 
             <!-- Tab panes -->
@@ -157,7 +187,7 @@ session_start();
               <input class="form-control" id="myInput2" type="text" placeholder="Search..">
               <br>
               
-              <table class="table table-hover">
+              <table id="myytable" class="table table-hover">
     <thead>
       <tr>
         <th>ID</th>
@@ -175,7 +205,7 @@ session_start();
             <td>aliya@gmail.com</td>
             <td>Digital Logic Design</td>
             <td>Mr John</td>  
-            <td><button type="button" class="btn btn-outline-success">Collected</button></td> 
+            <td><button type="button" class="btn btn-outline-success remove">Collected</button></td> 
             </tr>
           <tr>            
             <td>Sazia Tabassum</td>
@@ -183,7 +213,7 @@ session_start();
             <td>sazia@gmail.com</td>
             <td>Computer & Network Security</td>
             <td>Mr Thomson</td>  
-            <td><button type="button" class="btn btn-outline-success">Collected</button></td>
+            <td><button type="button" class="btn btn-outline-success remove">Collected</button></td>
             </tr>
           <tr>            
             <td>Sabrina Afrin</td>
@@ -191,7 +221,7 @@ session_start();
             <td>afrin@gmail.com</td>
             <td>Digital Logic Design</td>
             <td>Mr John</td>  
-            <td><button type="button" class="btn btn-outline-success">Collected</button></td> 
+            <td><button type="button" class="btn btn-outline-success remove">Collected</button></td> 
             </tr>
           <tr>            
             <td>Abedur Rahman</td>
@@ -199,7 +229,7 @@ session_start();
             <td>abed@gmail.com</td>
             <td>Architectural Engineer's Solutions Suite</td>
             <td>hbsd efj</td>  
-            <td><button type="button" class="btn btn-outline-success">Collected</button></td> 
+            <td><button type="button" class="btn btn-outline-success remove">Collected</button></td> 
             </tr>
       
     </tbody>

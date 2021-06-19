@@ -80,7 +80,7 @@ session_start();
 <!--
       <span class="text1">Welcome to</span>
       <span class="text2">Kotha Library!</span> -->
- 
+      <a href="index.html" class="btn-get-started">LogOut</a>
     </div>
   </section><!-- End Hero -->
 

@@ -245,6 +245,11 @@ session_start();
         </div>
       </div>
     </div>
+
+    <?php
+    $book_name=$_GET['book_name'];
+    echo $book_name;
+    ?>
     <?php ob_flush();  ?>
   
 </body>

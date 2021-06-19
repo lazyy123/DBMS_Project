@@ -9,6 +9,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
   <link href="CSSAll/borrowHistoryCSS.css" rel="stylesheet">
 
 </head>
@@ -22,8 +24,10 @@
 
   <h2>List of borrowed Books:</h2>
 
-  <p>Type something in the input field to search the table:</p>  
+  <p>Search:</p>  
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <td><button type="button" class="btn remove">Checked Out</button></td>
   <br>
               
   <table class="table table-hover">
@@ -46,7 +50,7 @@
         <td>05/07/2021</td>
         <td>17</td>
         <td>0</td>  
-        <td><button type="button" class="btn btn-success">Checked Out</button></td>              
+        <td><input type="checkbox" name="record"></td>              
       </tr>
       <tr>
         <td>Dictionary of Mechanical Engineering</td>
@@ -55,7 +59,7 @@
         <td>05/06/2021</td>
         <td>-13</td>
         <td>65</td>
-        <td><button type="button" class="btn btn-success">Checked Out</button></td>                 
+        <td><input type="checkbox" name="record"></td>                
       </tr>
       
     </tbody>
@@ -73,7 +77,18 @@
     });
     </script>
 
-
+<script>
+$(document).ready(function () {
+    // Find and remove selected table rows
+    $(".remove").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+            	if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                }
+            });
+        });
+    });
+</script>
 
 
 </body>

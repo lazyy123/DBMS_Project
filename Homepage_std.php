@@ -87,10 +87,16 @@ session_start();
 <!--
       <span class="text1">Welcome to</span>
       <span class="text2">Kotha Library!</span> -->
- 
+      <a href="index.html" class="btn-get-started" onclick="openLogout()">LogOut</a>
     </div>
   </section><!-- End Hero -->
+  <!--<script>
+  function openLogout(){
+    
+     session_destroy(); 
 
+  }
+  </script>-->
 
   <main id="main">
 

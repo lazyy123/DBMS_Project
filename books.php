@@ -11,7 +11,7 @@ session_start();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Kotha</title>
+  <title>Books</title>
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -230,14 +230,15 @@ session_start();
   <!--overlayer---------->
   <div class="overlay">
   <!--buy-btn------>	
-  <a href="#" class="buy-btn" name="sel">Select</a>  	
-  </div>
-  </div>
-  <!--detail-box--------->
-  <div class="detail-box">
-  <!--type-------->
-  <div class="type">
-  <?php
+  <?php $book_name="A programmers Guide" ; $author_name="Dr. William M Springer";
+  echo"<a href=\"selectCart.php?book_name=$book_name&author_name=$author_name\" class=\"buy-btn\" name=\"sel\">Select</a>  	";
+  echo'</div>';
+  echo'</div>';
+ 
+  echo'<div class="detail-box">';
+ 
+  echo'<div class="type">';
+  
   echo'<h5>A programmers Guide</h5>';
   echo'<span> Dr. William M Springer</span>';
   echo'<h5>B-Yt346</h5>';

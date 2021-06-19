@@ -153,6 +153,30 @@ session_start();
                                             </div>
                                         </div>
                                         <hr />
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Level</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                            <?php
+                                    echo $_SESSION['LLevel'];
+                                    ?>
+                                            </div>
+                                        </div>
+                                        <hr />
+
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Term</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                            <?php
+                                    echo $_SESSION['TTerm'];
+                                    ?>
+                                            </div>
+                                        </div>
+                                        <hr />
                                         
                                         
                                         <div class="row">
