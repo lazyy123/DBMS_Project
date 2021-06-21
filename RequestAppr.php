@@ -109,8 +109,9 @@ session_start();
             <td>Ramiza Aliya</td>
             <td>f_201914015</td>
             <td>Digital Logic Design</td>
+           
             <td>Mr John</td>  
-            <td><button type="button" class="btn btn-outline-success remove" name="rrr">Approve</button></td> 
+            <td><button type="button" class="btn btn-outline-success remove" >Approve</button></td> 
             <td><button type="button" class="btn btn-outline-danger remove">Reject</button></td>  
           </tr>
           <tr>            

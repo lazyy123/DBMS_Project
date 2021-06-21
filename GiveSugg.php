@@ -43,27 +43,25 @@ session_start();
         // Adding a row inside the tbody.
         $('#tbody').append(`<tr id="R${++rowIdx}">
              <td class="row-index text-center">
-             <input type="Text" placeholder="BookName">
+             <input type="Text" placeholder="BookName" name="BN">
              </td>
              <td class="row-index text-center">
-             <input type="Text" placeholder="AuthorName">
+             <input type="Text" placeholder="AuthorName" name="Aut">
              </td>
              <td class="row-index text-center">
-             <input type="Text" placeholder="For which Level">
+             <input type="Text" placeholder="For which Level" name="FL">
              </td>
              <td class="row-index text-center">
-             <input type="Text" placeholder="For which Term">
+             <input type="Text" placeholder="For which Term" name="FT">
              </td>
-             <td class="row-index text-center">
-             <input type="Text" placeholder="Course ID">
-             </td>
+           
              <td class="row-index text-center">
              <label class="container">
-                <input type="radio" checked="checked" name="radio">Text
+                <input type="radio" checked="checked" name="radio" name="radio1">Text
                   <span class="checkmark"></span>
             </label>
             <label class="container">
-                <input type="radio" name="radio">Reference
+                <input type="radio" name="radio" name="radio2">Reference
                 <span class="checkmark"></span>
             </label>
              </td>
@@ -74,8 +72,8 @@ session_start();
             
                 </td>
                 <td class="text-center">
-                <button class="btn btn-danger remove"
-                  type="button">Submit</button>
+                <button class="btn btn-warning"
+                  type="button" name="soup">Submit</button>
                   
             
                 </td>
@@ -167,11 +165,11 @@ session_start();
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th class="text-center">Book Name</th>
-            <th class="text-center">Author Name</th>
-            <th class="text-center" id="lev">For Level</th>
-            <th class="text-center" id="ter">For Term</th>
-            <th class="text-center" id="cid">Course ID</th>
+            <th class="text-center"  >Book Name</th>
+            <th class="text-center" >Author Name</th>
+            <th class="text-center" id="lev" >For Level</th>
+            <th class="text-center" id="ter" >For Term</th>
+            
             <th class="text-center">Type</th>
             <th class="text-center">..</th>
           </tr>
@@ -185,6 +183,7 @@ session_start();
       id="addBtn" type="button">
         Add new Row
     </button>
+   
     <br><br>
   
 </div>
@@ -230,6 +229,49 @@ session_start();
       </div>
     </div>
 
+
+
+<?php
+
+
+$usr_name = 'SYSTEM';
+    $pass = '123ORacle';
+
+    $connectionString = 'localhost/xe';
+
+    $connect = oci_connect($usr_name,$pass,$connectionString);
+
+    if ($connect){
+        echo '<p>Connect hoise</p>';
+    }
+    else{
+        //echo '<p>ki korsos bainchod</p>';
+    }
+  
+if (isset($_POST['soup'])){
+  $bn = $_POST['BN'];
+  $aut = $_POST['Aut'];
+  $fl = $_POST['FL'];
+  $ft = $_POST['FT'];
+  if (isset($_POST['radio1'])){
+    $rr="Text";
+  }
+  else{
+    $rr="Reference";
+  }
+  $query = "insert into GIVSUG values ('".$bn."','".$aut."','".$fl."','".$ft."','".$rr."')";
+  echo $query;
+  // $command = 'insert into GIVSUG';
+  // $datas = ' values (' . "'".$bn."'". "," . "'".$aut."'". ",". "'".$fl."'".",". "'".$ft."'".  ",". "'".$rr."'".')';
+  // echo $datas;
+  // $command.=$datas;
+  $out = oci_parse($connect,$query);
+  oci_execute($out);
+  
+}
+
+
+?>
     <?php ob_flush();  ?>
 </body>
 
