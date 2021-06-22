@@ -1,3 +1,10 @@
+
+<?php
+@ob_start();
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +26,10 @@
 <div class="container">
 
 <div class="info">
-    <div class="name"><i class="fa fa-user" aria-hidden="true"></i><strong>Amrin Pinky</strong></div>
+    <div class="name"><i class="fa fa-user" aria-hidden="true"></i><strong>
+    <?php echo $_SESSION['NNAME'] ?>
+
+    </strong></div>
 </div>
 
   <h2>List of borrowed Books:</h2>
@@ -44,7 +54,7 @@
     </thead>
     <tbody id="myTable">
       <tr>
-        <td>Automotive Mechanics</td>
+        <!--<td>Automotive Mechanics</td>
         <td>B-Vh402jn</td>
         <td>04/03/2021</td>
         <td>05/07/2021</td>
@@ -59,7 +69,24 @@
         <td>05/06/2021</td>
         <td>-13</td>
         <td>65</td>
-        <td><input type="checkbox" name="record"></td>                
+        <td><input type="checkbox" name="record"></td>  -->
+      <?php
+        $usr_name = 'SYSTEM';
+    $pass = '123ORacle';
+
+    $connectionString = 'localhost/xe';
+
+    $connect = oci_connect($usr_name,$pass,$connectionString);
+
+    if ($connect){
+        //echo '<p>Connect hoise</p>';
+    }
+    else{
+        //echo '<p>ki vai</p>';
+    }  
+    //$show_table = "select * from BARCART,BookList  where EMAIL ='".$inn1."'AND PASSWORD='".$inn2."' ";  
+    
+    ?>
       </tr>
       
     </tbody>
@@ -90,6 +117,6 @@ $(document).ready(function () {
     });
 </script>
 
-
+<?php ob_flush() ?>
 </body>
 </html>

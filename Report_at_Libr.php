@@ -3,6 +3,17 @@
 session_start();
 ?>
 
+<?php
+$usr_name1 = 'SYSTEM';
+$pass1 = '123ORacle';
+
+$connectionString1 = 'localhost/xe';
+
+$connect1 = oci_connect($usr_name1,$pass1,$connectionString1);
+
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -105,59 +116,78 @@ session_start();
                 <div id="report" class="tab-pane fade show active"><br>
 
                 <p>Search Librarian:</p>  
-                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                <input class="form-control" id="myInput1" type="text" placeholder="Search..">
                 <br>
                 <td><button type="button" class="btn btn-outline-success remove">Solved</button></td>
-                <br>
+                
 
-                <table class="table table-hover">
-    <thead>
+              <?php
+              echo '<table id="mytable1" class="table table-hover">'
+              ?>
+                
+    <?php echo '<thead>
       <tr>
-        <th>ID</th>
         <th>Name</th>
+        <th>ID</th>
         <th>Email</th>
-        <th>Phone No.</th>
         <th>Topic</th>
         <th>Report</th>
         <th>..</th>
       </tr>
-    </thead>
-    <tbody id="myTable">
-      <tr>
-        <td>s_564543234</td>
-        <td>MD Sajid</td>
-        <td>sajid@gmail.com</td>
-        <td>01928335652</td>
-        <td>Page of Book missing.</td> 
-        <td>There are 30 pages missing from the book Engineering Design.<br>I can't find the chapter I need to read!! </td>               
-        <td><input type="checkbox" name="record"></td>
-      </tr>
-      <tr>
-        <td>f_564546334</td>
-        <td>Pinky Rahman</td>
-        <td>pinks@gmail.com</td>
-        <td>01923635848</td>
-        <td>Pages of Book is blank.</td> 
-        <td>There are 4 pages are blank from the book Engineering Design.<br>The page numbers ar 289, 627, 183, 388. </td>                
-        <td><input type="checkbox" name="record"></td>              
-      </tr>
-      <tr>
-        <td>s_564543234</td>
-        <td>MD Sajid</td>
-        <td>sajid@gmail.com</td>
-        <td>01928335652</td>
-        <td>Page of Book missing.</td> 
-        <td>There are 30 pages missing from the book Engineering Design.<br>I can't find the chapter I need to read!! </td>               
-        <td><input type="checkbox" name="record"></td>               
-      </tr>
-      
-    </tbody>
-  </table>
+    </thead>'?>
+
+<?php
+$show_table = 'select * from reporttable';
+$out = oci_parse($connect1,$show_table);
+oci_execute($out);
+
+while ($row = oci_fetch_array($out, OCI_RETURN_NULLS+OCI_ASSOC)) {
+  /*echo '<tr>';
+  foreach ($row as $item) {
+      echo '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+             
+  }
+  echo '<td><button type="button" name="collected" class="btn btn-outline-success remove">Collected</button></td>';
+  //echo '<td><input type="checkbox" name="record"></td>';
+  echo '</tr>';
+  */
+
+  echo "
+  <tr>
+  <td>".$row['NAME']."</td>
+  <td>".$row['ID']."</td>
+  <td>".$row['EMAIL']."</td>
+  <td>".$row['TOPIC']."</td>
+  <td>".$row['REPORT_MASSAGE']."</td>
+  
+  
+  ";?>
+  
+  <td><button type="button" name="collected" class="btn">
+  <a href="email.php?em=<?php echo $row['EMAIL']; ?>" onclick='return checkemail()'>
+  Solved</a></button></td>
+  
+  <td><button type="button" name="collected" class="btn btn-outline-danger">
+  <a href="delete.php?bn=<?php echo $row['BOOK_NAME']; ?>" onclick='return checkdelete()'>
+  Remove</a></button></td></tr>
+
+
+<?php
+
+
+}
+
+?>
+
+<?php echo '</table>' ?>
+</div>
+  <!-----------search--------->
+
   <script>
     $(document).ready(function(){
-      $("#myInput").on("keyup", function() {
+      $("#myInput1").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function() {
+        $("#myTable1 tr").filter(function() {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
       });
@@ -179,69 +209,183 @@ $(document).ready(function () {
 
 
 
-            </div>
+            
 
             <!-- Tab panes -->
             <div id="reqToCollect" class="container tab-pane fade"><br>
             <p>Search Librarian:</p>  
               <input class="form-control" id="myInput2" type="text" placeholder="Search..">
               <br>
+              <?php
+              echo '<table id="myytable" method="POST" class="table table-hover">'
+              ?>
               
-              <table id="myytable" class="table table-hover">
-    <thead>
+    <?php echo '<thead>
       <tr>
-        <th>ID</th>
         <th>Name</th>
-        <th>Email</th>
+        <th>ID</th>
+        <th name="person_email">Email</th>
         <th>Book Name</th>
         <th>Author Name</th>
         <th>..</th>
       </tr>
-    </thead>
-    <tbody id="myTable2">
-          <tr>            
-            <td>Ramiza Aliya</td>
-            <td>f_201914015</td>
-            <td>aliya@gmail.com</td>
-            <td>Digital Logic Design</td>
-            <td>Mr John</td>  
-            <td><button type="button" class="btn btn-outline-success remove">Collected</button></td> 
-            </tr>
-          <tr>            
-            <td>Sazia Tabassum</td>
-            <td>f_201914040</td>
-            <td>sazia@gmail.com</td>
-            <td>Computer & Network Security</td>
-            <td>Mr Thomson</td>  
-            <td><button type="button" class="btn btn-outline-success remove">Collected</button></td>
-            </tr>
-          <tr>            
-            <td>Sabrina Afrin</td>
-            <td>s_201914055</td>
-            <td>afrin@gmail.com</td>
-            <td>Digital Logic Design</td>
-            <td>Mr John</td>  
-            <td><button type="button" class="btn btn-outline-success remove">Collected</button></td> 
-            </tr>
-          <tr>            
-            <td>Abedur Rahman</td>
-            <td>s_201914011</td>
-            <td>abed@gmail.com</td>
-            <td>Architectural Engineer's Solutions Suite</td>
-            <td>hbsd efj</td>  
-            <td><button type="button" class="btn btn-outline-success remove">Collected</button></td> 
-            </tr>
+    </thead>'?>
+
+<?php
+$show_table = 'select * from Requst_book';
+$out = oci_parse($connect1,$show_table);
+oci_execute($out);
+
+$e_mail= '';
+$b_name = '';
+
+while ($row = oci_fetch_array($out, OCI_RETURN_NULLS+OCI_ASSOC)) { 
+  /*<!--
+  echo '<tr>';
+  foreach ($row as $item) {
+      echo '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+             
+  }
+  
+  echo '<td><button type="button" name="collected" class="btn btn-outline-success remove">Collected</button></td>';
+  echo '</tr>';     -->*/
+
+
+
+echo "
+<tr>
+<td>".$row['NAME']."</td>
+<td>".$row['ID']."</td>
+<td>".$row['EMAIL']."</td>
+<td>".$row['BOOK_NAME']."</td>
+<td>".$row['AUTHOR_NAME']."</td>
+
+
+";?>
+
+<td><button type="button" name="collected" class="btn">
+<a href="email.php?em=<?php echo $row['EMAIL']; ?>" onclick='return checkemail()'>
+Collected</a></button></td>
+
+<td><button type="button" name="collected" class="btn btn-outline-danger">
+<a href="delete.php?bn=<?php echo $row['BOOK_NAME']; ?>" onclick='return checkdelete()'>
+Remove</a></button></td></tr>
+
+<?php //echo '<td><a href="delete.php?Prid=$row[ID]">Collected</a></td>
+//echo '<td><button type="button" name="collected" class="btn btn-outline-success deletebtn">Collected</button></a></td></tr>';
+
+//echo '<td><button type="submit" name="collected" class="btn btn-outline-success deletebtn">Collected</button></td></tr>';
+
+}
+?>
+
+
+<?php echo '</table>' ?>
+
+
+
+
+<!-----------row deletion script------------>
+<!--
+<script>
+$(document).ready(function()
+{
+  $('.deletebtn').on('click', function()
+  {
+    $('#deletemodal').modal('show');
+
+    $tr = $(this).closest('tr');
+
+    var data = $tr.children("td").map(function(){
+      return $(this).text();
+    }).get();
+
+    console.log(data);
+
+    $('#delete_id').val(data[0]);
+
+  })
+})
+
+</script> -->
+
+<!-----------row deletion modal------------>
+
+ <!--
+<div class="modal" id="deletemodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header 
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Data</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
       
-    </tbody>
-  </table>
+      <!-- Modal body 
+      <form action="delete.php" method="POST">
+
+      <div class="modal-body">
+        <input type="hidden" name="delete_id" id="delete_id">
+        <h5>Are you sure you want to delete this Data?</h5>
+      </div>
+
+      <!-- Modal footer 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name="deletedata" class="btn btn-danger">Delete</a></button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+-->
+
+<!-----------row deletion modal end------------>
+
+
+
+
+
+
+
+
+
+<script>
+function checkemail()
+{
+  alert('Are you sure about sending Email?');
+  //window.location = 'email.php';
+}
+</script>
+
+<script>
+function checkdelete()
+{
+  //alert('Are you sure about removing this data?');
+  //window.location = 'email.php';
+  
+}
+</script>
+
+
+
+
+  
+
+<!-----------row deletion script end------------>
+
+
+
   
 </div>          
 
+<!------------------search------------>
 <script>
     $(document).ready(function(){
       $("#myInput2").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        $("#myTable2 tr").filter(function() {
+        $("#myytable tr").filter(function() {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
       });
@@ -257,6 +401,12 @@ $(document).ready(function () {
 
 
 
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
@@ -267,30 +417,30 @@ $(document).ready(function () {
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Contact</h3>
             <p>
-              378 Sugar Camp Road,<br>
+              MK University<br>
               Mirpur Cantonment,<br>
               Dhaka. <br><br>
               <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> bookishcloud@gmail.com<br>
+              <strong>Email:</strong> kothalibrary@gmail.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="books.html">All the books</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Send us massage</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Home</a></li>
+              
+              <li><i class="bx bx-chevron-right"></i> <a href="">All the books</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Send us massage</a></li>
             </ul>
           </div>
 
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Wanna get notification about new books?</h4>
-            <p>Subscribe to out site..</p>
+            <p>Stay Conected..</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Click Here!">
             </form>
           </div>
 
@@ -302,3 +452,4 @@ $(document).ready(function () {
 </body>
 
 </html>
+

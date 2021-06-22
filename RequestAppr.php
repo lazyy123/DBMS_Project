@@ -99,19 +99,53 @@ session_start();
         <th>Name</th>
         <th>ID</th>
         <th>Book Name</th>
-        <th>Author Name</th>
+        <th>Barcode</th>
         <th></th>
         <th></th>
       </tr>
     </thead>
     <tbody id="myTable">
-        <tr>            
+              
+        <!--
+      $usr_name = 'SYSTEM';
+      $pass = '123ORacle';
+  
+      $connectionString = 'localhost/xe';
+  
+      $connect = oci_connect($usr_name,$pass,$connectionString);
+  
+      if ($connect){
+          //echo '<p>Connect hoise</p>';
+      }
+      else{
+          //echo '<p>ki korsos bainchod</p>';
+      }
+        $show_table = 'select * from BARCART ';
+        $out = oci_parse($connect,$show_table);
+        oci_execute($out);
+        while ($row = oci_fetch_array($out, OCI_ASSOC + OCI_RETURN_NULLS)) {
+        
+            
+              //print "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
+              ?>
+              <tr>
+              <td>Ramiza Aliya</td>
+              <td> echo $row[0] ; ?></td>
+              <td>Digital Logic Design</td>
+              <td> echo $row[1]  ; ?> </td>  
+              <td><button type="button" class="btn btn-outline-success remove">Approve</button></td> 
+              <td><button type="button" class="btn btn-outline-danger remove">Reject</button></td>  
+            </tr>
+           }  
+          -->
+      
+
+     <tr>
             <td>Ramiza Aliya</td>
             <td>f_201914015</td>
             <td>Digital Logic Design</td>
-           
             <td>Mr John</td>  
-            <td><button type="button" class="btn btn-outline-success remove" >Approve</button></td> 
+            <td><button type="button" class="btn btn-outline-success remove">Approve</button></td> 
             <td><button type="button" class="btn btn-outline-danger remove">Reject</button></td>  
           </tr>
           <tr>            
@@ -137,6 +171,7 @@ session_start();
             <td>hbsd efj</td>  
             <td><button type="button" class="btn btn-outline-success remove">Approve</button></td> 
             <td><button type="button" class="btn btn-outline-danger remove">Reject</button></td>  
+
           </tr>
     </tbody>
   </table>
@@ -164,37 +199,37 @@ session_start();
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Contact</h3>
             <p>
-              378 Sugar Camp Road,<br>
+              MK University<br>
               Mirpur Cantonment,<br>
               Dhaka. <br><br>
               <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> bookishcloud@gmail.com<br>
+              <strong>Email:</strong> kothalibrary@gmail.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="books.html">All the books</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Send us massage</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Home</a></li>
+              
+              <li><i class="bx bx-chevron-right"></i> <a href="">All the books</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Send us massage</a></li>
             </ul>
           </div>
 
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Wanna get notification about new books?</h4>
-            <p>Subscribe to out site..</p>
+            <p>Stay Conected..</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Click Here!">
             </form>
           </div>
 
         </div>
       </div>
     </div>
-    
+
     <?php ob_flush();  ?>
 </body>
 

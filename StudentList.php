@@ -73,11 +73,9 @@ session_start();
           <li><a href="Suggestion.php">Suggestions</a></li>-->
           
           <li><a href="Contact.php">Contact</a></li>
-          <!--<form class="form-inline my-2 my-lg-0">-->
           <form class="form-inline my-2 my-lg-0" action = "StudentList.php" method = "post">
       <input class="form-control mr-sm-2" id="myInput" type="text" placeholder="Search.." aria-label="Search" name="searchdao">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="sear">Search</button>
-      <!---->
     </form>
 
         </ul>
@@ -94,49 +92,34 @@ session_start();
     
 
   <br>
+  <?php
+    $usr_name = 'SYSTEM';
+    $pass = '123ORacle';
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Dept</th>
-        <th>Level</th>
-        <th>Term</th>
-        <th>Email</th>
-        <th>Pending Text Books</th>
-      </tr>
-    </thead>
-    <tbody id="myTable">
-      <tr>
-        <td>s_201914027</td>
-        <td>Amrin Akter Pinky</td>
-        <td>CSE</td>
-        <td>3</td>
-        <td>1</td>
-        <td>amrin@gmail.com</td>
-        <td>4</td>        
-      </tr>
-      <tr>
-        <td>s_201914050</td>
-        <td>Tahsin Ahmed</td>
-        <td>CSE</td>
-        <td>3</td>
-        <td>1</td>
-        <td>tahsin@gmail.com</td>
-        <td>3</td> 
-      </tr>
-      <tr>
-        <td>s_201914055</td>
-        <td>Sabrina Afrin Toma</td>
-        <td>CSE</td>
-        <td>3</td>
-        <td>1</td>
-        <td>sabrina@gmail.com</td>
-        <td>6</td>   
-      </tr>
-    </tbody>
-  </table>
+    $connectionString = 'localhost/xe';
+
+    $connect = oci_connect($usr_name,$pass,$connectionString);
+
+    if (!$connect){
+        echo '<p>Could not Connect!</p>';
+    }
+    $show_table = "select ID \"ID\", DEPT \"Department\", NAME \"Name\", PHONE_NUM \"Phone No.\", EMAIL \"Email ID\" from PERSON_TABLE where id like 'S%'";
+      $out = oci_parse($connect,$show_table);
+      oci_execute($out);
+      print "<table class = \"table table-responsive-md    table-striped table-dark table-hover id=\"myTable\"\">\n";
+      print "<tr><td>ID</td><td>Department</td><td>Name</td><td>Phone No.</td><td>Email ID</td></tr>\n";
+
+        while ($row = oci_fetch_array($out, OCI_ASSOC + OCI_RETURN_NULLS)) {
+            print "<tr>\n";
+            foreach ($row as $item) 
+            {
+                print "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
+            }
+            print "</tr>\n";
+        }
+        print "</table>\n";
+  ?>
+
 </div>
 
 <script>
@@ -164,30 +147,30 @@ session_start();
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Contact</h3>
             <p>
-              378 Sugar Camp Road,<br>
+              MK University<br>
               Mirpur Cantonment,<br>
               Dhaka. <br><br>
               <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> bookishcloud@gmail.com<br>
+              <strong>Email:</strong> kothalibrary@gmail.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="books.html">All the books</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Send us massage</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Home</a></li>
+              
+              <li><i class="bx bx-chevron-right"></i> <a href="">All the books</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Send us massage</a></li>
             </ul>
           </div>
 
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Wanna get notification about new books?</h4>
-            <p>Subscribe to out site..</p>
+            <p>Stay Conected..</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Click Here!">
             </form>
           </div>
 
@@ -200,7 +183,7 @@ session_start();
       //$disi= $_POST['searchdao'];
       //if(!is_null($disi))
       
-        //$IDD= $_SESSION['IID'];
+        $IDD= $_SESSION['IID'];
        
           echo'<script>';
           echo'function pageRedirect() {';

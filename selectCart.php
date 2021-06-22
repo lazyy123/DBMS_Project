@@ -1,5 +1,5 @@
 <?php
-
+echo '<br><br>';
 @ob_start();
 session_start();
 
@@ -21,8 +21,38 @@ if (isset($_POST['remove'])){
 }
 if(isset($_POST['borrow'])){
   if ($_GET['action1'] == 'borrow'){
-   echo $value["product_id"];
+    foreach ($_SESSION['cart'] as $key => $value){
+      if($value["product_id"] == $_GET['id']){
+        
+         $pID = $_SESSION['IID'];
+         $Bookid = $value["product_id"];
+         // unset($_SESSION['cart'][$key]);
+          
+          
+      }
   }
+    
+   //echo $_GET['id'];
+   $usr_name = 'SYSTEM';
+    $pass = '123ORacle';
+
+    $connectionString = 'localhost/xe';
+
+    $connect = oci_connect($usr_name,$pass,$connectionString);
+
+    if ($connect){
+        echo '<p>Connect hoise</p>';
+    }
+    else{
+        echo '<p>hoynai</p>';
+    }
+  }
+  $command = 'insert into BARCART';
+        $datas = ' values (' . "'".$pID."'". "," . "'".$Bookid."'". ')';
+        //echo $datas;
+        $command.=$datas;
+        $out = oci_parse($connect,$command);
+        oci_execute($out);
   
 }
 
@@ -116,6 +146,7 @@ if(isset($_POST['borrow'])){
         <div class="col-md-7">
             <div class="shopping-cart">
                 <h6>My Cart</h6>
+                <br><br><br><br>
                 <hr>
 
                 <?php
@@ -124,7 +155,7 @@ if(isset($_POST['borrow'])){
                     if (isset($_SESSION['cart'])){
                         $product_id = array_column($_SESSION['cart'], 'product_id');
 
-                        $usr_name = 'SYSTEM';
+                        $usr_name = 'system';
                         $pass = '123ORacle';
                         $connectionString = 'localhost/xe';
                         $connect = oci_connect($usr_name,$pass,$connectionString);

@@ -39,6 +39,7 @@ if(isset($_POST['add'])){
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,14 +64,13 @@ if(isset($_POST['add'])){
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./CSSALL/style.css">
   <link href="./CSSAll/booksCSS.css" rel="stylesheet">
 
 
 
 <!-- ------------------------------------------------------ -->
 <!-- ----------------Add Book Script---------------- -->
-<!---->
 
 
   <!-- ======================================================== -->
@@ -136,7 +136,7 @@ if(isset($_POST['add'])){
 
     <h1 class = "lg-title">Find Your Books!</h1>
 
-    
+  
     <div class="fetbook">
 
         
@@ -203,9 +203,9 @@ if(isset($_POST['add'])){
     </div>
   </div>
   
-
-
   
+
+
 </div>
 </div>
 
@@ -242,7 +242,7 @@ if(isset($_POST['add'])){
   <!-- End #main -->
 
   
-
+  
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
@@ -253,19 +253,19 @@ if(isset($_POST['add'])){
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Contact</h3>
             <p>
-              378 Sugar Camp Road,<br>
+              MK University<br>
               Mirpur Cantonment,<br>
               Dhaka. <br><br>
               <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> bookishcloud@gmail.com<br>
+              <strong>Email:</strong> kothalibrary@gmail.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="profilePage.php">Account</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Home</a></li>
+              
               <li><i class="bx bx-chevron-right"></i> <a href="">All the books</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="">Send us massage</a></li>
             </ul>
@@ -274,9 +274,9 @@ if(isset($_POST['add'])){
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Wanna get notification about new books?</h4>
-            <p>Subscribe to out site..</p>
+            <p>Stay Conected..</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Click Here!">
             </form>
           </div>
 

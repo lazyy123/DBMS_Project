@@ -4,6 +4,8 @@
 session_start();
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +22,10 @@ session_start();
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <link href="CSSAll/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -71,67 +77,88 @@ session_start();
 
 
 <!------------Stuednt List Table-------------->
+<?php
+$usr_name = 'SYSTEM';
+    $pass = '123ORacle';
+
+    $connectionString = 'localhost/xe';
+
+    $connect = oci_connect($usr_name,$pass,$connectionString);
+
+?>
 
 <div class="container">
   <h2>Suggestions For Students:</h2>
     
-  <p>Type something in the input field to search the table:</p>  
-  <input class="form-control" id="myInput" type="text" placeholder="Search..">
-  <br>
-
-  <table class="table table-striped">
-    <thead>
+  <div>
+              <p>Search:</p>  
+              <input class="form-control" id="myInput3" type="text" placeholder="Search..">
+              <br></div>
+              <?php
+              echo '<table id="myyytable" class="table table-hover">'
+              ?>
+              
+    <?php echo '<thead>
       <tr>
-        <th>Faculty ID</th>
         <th>Faculty Name</th>
-        <th>Dept</th>
-        <th>Level</th>
-        <th>Term</th>
-        <th>Course Code</th>
         <th>Book Name</th>
         <th>Author Name</th>
-        <th style="width:15%">...</th>
+        <th>For Level</th>
+        <th>For Term</th>
+        <th>Course ID</th>
+        <th>Type</th>
       </tr>
-    </thead>
-    <tbody id="myTable">
-        <tr>
-            <td>f_201914040</td>
-            <td>Sazia Tabassum</td>
-            <td>CSE</td>
-            <td>2</td>
-            <td>1</td>
-            <td>201</td>
-            <td>Digital Logic Design</td>
-            <td>Mr John</td>  
-            <td>TextBook</td>   
-          </tr>
-          <tr>
-            <td>f_201914039</td>
-            <td>Raiyan Jahangir</td>
-            <td>ME</td>
-            <td>2</td>
-            <td>2</td>
-            <td>263</td>
-            <td>Thermal Energy</td>  
-            <td>Md Kamal</td> 
-            <td>ReferenceBook</td>      
-          </tr>
-    </tbody>
-  </table>
+    </thead>'?>
+
+<?php
+$show_table = 'select FACULTY_NAME,FACULTY_ID,BOOK_NAME,AUTHOR_NAME,FOR_LEVEL,FOR_TERM,COURSE_ID,TYPE from GIVESUGGESTION';
+$out = oci_parse($connect,$show_table);
+oci_execute($out);
+
+while ($row = oci_fetch_array($out, OCI_RETURN_NULLS+OCI_ASSOC)) {
+  /*echo '<tr>';
+  foreach ($row as $item) {
+      echo '<td>'.($item !== null ? htmlentities($item, ENT_QUOTES) : '&nbsp').'</td>';
+             
+  }
+  
+  echo '</tr>';*/
+
+  echo "
+  <tr>
+  <td>".$row['FACULTY_NAME']."</td>
+  <td>".$row['BOOK_NAME']."</td>
+  <td>".$row['AUTHOR_NAME']."</td>
+  <td>".$row['FOR_LEVEL']."</td>
+  <td>".$row['FOR_TERM']."</td>
+  <td>".$row['COURSE_ID']."</td>
+  <td>".$row['TYPE']."</td>
+  
+  </tr>
+  ";
+
+
+
+}
+
+?>
+
+<?php echo '</table>' ?>
+
+
 </div>
 
+<!------------------search------------>
 <script>
     $(document).ready(function(){
-      $("#myInput").on("keyup", function() {
+      $("#myInput3").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function() {
+        $("#myyytable tr").filter(function() {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
       });
     });
     </script>
-
-
 
 
 
@@ -145,30 +172,30 @@ session_start();
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Contact</h3>
             <p>
-              378 Sugar Camp Road,<br>
+              MK University<br>
               Mirpur Cantonment,<br>
               Dhaka. <br><br>
               <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> bookishcloud@gmail.com<br>
+              <strong>Email:</strong> kothalibrary@gmail.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="books.html">All the books</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Send us massage</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Home</a></li>
+              
+              <li><i class="bx bx-chevron-right"></i> <a href="">All the books</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Send us massage</a></li>
             </ul>
           </div>
 
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Wanna get notification about new books?</h4>
-            <p>Subscribe to out site..</p>
+            <p>Stay Conected..</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Click Here!">
             </form>
           </div>
 
