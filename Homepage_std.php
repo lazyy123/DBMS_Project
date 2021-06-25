@@ -121,7 +121,7 @@ session_start();
       <div class="box">
       <!--img-box---------->
       <div class="slide-img">
-      <img alt="1" src="IMAGES/A programmer's Guide.jpg">
+      <img alt="1" src="IMAGES/A programmers Guide.jpg">
       <!--overlayer---------->
       <div class="overlay">
       <!--buy-btn------>	

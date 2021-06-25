@@ -105,46 +105,15 @@ session_start();
       </tr>
     </thead>
     <tbody id="myTable">
-              
-        <!--
-      $usr_name = 'SYSTEM';
-      $pass = '123ORacle';
-  
-      $connectionString = 'localhost/xe';
-  
-      $connect = oci_connect($usr_name,$pass,$connectionString);
-  
-      if ($connect){
-          //echo '<p>Connect hoise</p>';
-      }
-      else{
-          //echo '<p>ki korsos bainchod</p>';
-      }
-        $show_table = 'select * from BARCART ';
-        $out = oci_parse($connect,$show_table);
-        oci_execute($out);
-        while ($row = oci_fetch_array($out, OCI_ASSOC + OCI_RETURN_NULLS)) {
-        
             
-              //print "    <td>" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&nbsp;") . "</td>\n";
-              ?>
-              <tr>
-              <td>Ramiza Aliya</td>
-              <td> echo $row[0] ; ?></td>
-              <td>Digital Logic Design</td>
-              <td> echo $row[1]  ; ?> </td>  
-              <td><button type="button" class="btn btn-outline-success remove">Approve</button></td> 
-              <td><button type="button" class="btn btn-outline-danger remove">Reject</button></td>  
-            </tr>
-           }  
-          -->
-      
-
-     <tr>
+  
+    
+    
+               <tr> 
             <td>Ramiza Aliya</td>
             <td>f_201914015</td>
             <td>Digital Logic Design</td>
-            <td>Mr John</td>  
+            <td>B-jr7f4</td>  
             <td><button type="button" class="btn btn-outline-success remove">Approve</button></td> 
             <td><button type="button" class="btn btn-outline-danger remove">Reject</button></td>  
           </tr>
@@ -152,7 +121,7 @@ session_start();
             <td>Sazia Tabassum</td>
             <td>f_201914040</td>
             <td>Computer & Network Security</td>
-            <td>Mr Thomson</td>  
+            <td>B-jr7j4eh</td>  
             <td><button type="button" class="btn btn-outline-success remove">Approve</button></td> 
             <td><button type="button" class="btn btn-outline-danger remove">Reject</button></td>  
           </tr>
@@ -160,7 +129,7 @@ session_start();
             <td>Sabrina Afrin</td>
             <td>s_201914055</td>
             <td>Digital Logic Design</td>
-            <td>Mr John</td>  
+            <td>B-74njf8</td>  
             <td><button type="button" class="btn btn-outline-success remove">Approve</button></td> 
             <td><button type="button" class="btn btn-outline-danger remove">Reject</button></td>  
           </tr>
@@ -168,10 +137,9 @@ session_start();
             <td>Abedur Rahman</td>
             <td>s_201914011</td>
             <td>Architectural Engineer's Solutions Suite</td>
-            <td>hbsd efj</td>  
+            <td>B-6fdj7</td>  
             <td><button type="button" class="btn btn-outline-success remove">Approve</button></td> 
             <td><button type="button" class="btn btn-outline-danger remove">Reject</button></td>  
-
           </tr>
     </tbody>
   </table>

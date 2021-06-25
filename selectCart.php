@@ -1,5 +1,5 @@
 <?php
-echo '<br><br>';
+
 @ob_start();
 session_start();
 
@@ -55,6 +55,7 @@ if(isset($_POST['borrow'])){
         oci_execute($out);
   
 }
+
 
 
 ?>
@@ -155,7 +156,7 @@ if(isset($_POST['borrow'])){
                     if (isset($_SESSION['cart'])){
                         $product_id = array_column($_SESSION['cart'], 'product_id');
 
-                        $usr_name = 'system';
+                        $usr_name = 'SYSTEM';
                         $pass = '123ORacle';
                         $connectionString = 'localhost/xe';
                         $connect = oci_connect($usr_name,$pass,$connectionString);
