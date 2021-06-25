@@ -159,7 +159,7 @@ if(isset($_POST['add'])){
         
         <!-- Modal body -->
         <div class="modal-body">
-        <form id="bform" action="/action_page.php" class="was-validated">
+        <form id="bform" action="books.php" method="POST" class="was-validated">
     <div class="form-group">
       <label for="bname">Book Name:</label>
       <input type="text" class="form-control" id="bname" placeholder="Enter Bookname" name="bname" required>
@@ -181,15 +181,19 @@ if(isset($_POST['add'])){
       <input type="text" class="form-control" id="avail" placeholder="How many books are Available?" name="avail" required>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
+    <div class="form-group">
+      <label for="img">BookCover Img:</label>
+      <input type="file" class="form-control" id="img" placeholder="Book Cover" name="bookimg" required>
+      
+    </div>
 
+    <div class="modal-footer">
+          <button type="submit"  name="ATB">Add this Book</button>
+          <!-- class="btn btn-primary" data-dismiss="modal"-->
+        </div>
   </form>
         </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="submit" id="subButton" class="btn btn-primary" data-dismiss="modal">Add this Book</button>
-        </div>
-        
+      
         <script>
         $(document).ready(function(){
           $('#subButton').click(function(){
@@ -287,6 +291,39 @@ if(isset($_POST['add'])){
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
+
+
+<?php
+
+
+$usr_name = 'SYSTEM';
+$pass = '123ORacle';
+
+$connectionString = 'localhost/xe';
+
+$connect1 = oci_connect($usr_name,$pass,$connectionString);
+echo 'ogo shuncho';
+if(isset($_POST['ATB']))
+{
+  echo 'aschi bapu';
+  $bookname = $_POST['bname'];
+  $authname = $_POST['aname'];
+  $bar_code = $_POST['barcode'];
+  $avail = $_POST['avail'];
+  $coverImg = $_POST['bookimg'];
+
+  $command1 = 'insert into BookList';
+  $datas1 = ' values (' . "'".$bar_code."'". "," . "'".$bookname."'". ",". "'".$authname."'". ",". "'".$avail."'". ",". "'".$coverImg."'".')';
+  echo $datas1;
+  $command1.=$datas1;
+  $out1 = oci_parse($connect1,$command1);
+  oci_execute($out1);
+  
+}
+
+
+?>
+
 
 <?php
 ob_flush();
